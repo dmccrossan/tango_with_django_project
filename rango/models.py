@@ -3,9 +3,8 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
 
-    def __str__(self): #for python 2 use __unicode__ too?
+    def __unicode__(self):
         return self.name
-
 
 class Page(models.Model):
     category = models.ForeignKey(Category)
@@ -13,5 +12,6 @@ class Page(models.Model):
     url = models.URLField()
     views = models.IntegerField(default=0)
 
-    def __str__(self): #for python 2 use __unicode__ too?
+    def __unicode__(self):
+        return self.title
         return self.title
